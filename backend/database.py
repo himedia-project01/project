@@ -23,7 +23,7 @@ Base = declarative_base()
 def create_tables():
     try:
         Base.metadata.create_all(bind=engine)
-        print("database tables created successfully")
+        # print("database tables created successfully")
     except SQLAlchemyError as e:
         print("Error creating tables", e)
 
