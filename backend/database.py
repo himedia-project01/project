@@ -4,6 +4,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy.exc import SQLAlchemyError
 
+
+# 환경변수 설정
 load_dotenv()
 DB_USER = os.getenv("DB_USER", "user")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "password")
@@ -21,18 +23,14 @@ SessionLocal = sessionmaker(autocommit=False,
 Base = declarative_base()
 
 def create_tables():
-    try:
-        Base.metadata.create_all(bind=engine)
-        # print("database tables created successfully")
-    except SQLAlchemyError as e:
-        print("Error creating tables", e)
+    Base.metadata.create_all(bind=engine)
+
 
 def get_db():
     db = SessionLocal()
     try:
         yield db
     except SQLAlchemyError as e:
-        print("❌ Database error:", e)
         db.rollback()
         raise
     finally:

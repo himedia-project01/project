@@ -7,6 +7,7 @@ from models.comment import Comment
 from models.post import Post
 from models.user import User
 from pydantic import BaseModel
+from routers import user
 
 app = FastAPI()
 
@@ -14,6 +15,11 @@ class CommentCreate(BaseModel):
     content: str
     post_id: int
     user_id: int
+
+
+app = FastAPI()
+
+app.include_router(user.router)
 
 @app.on_event("startup")
 def startup_event():
