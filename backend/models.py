@@ -22,11 +22,13 @@ class User(Base):
     # 생년월일
     birth = Column(DateTime)
     # 성별
-    gender = Column(String(10),  Enum('male', 'female', 'none', name='gender_enum'), nullable=False)
+    gender = Column(Enum('male', 'female', 'none', name='gender_enum'), nullable=False)
     # 가입일자
     created_at = Column(DateTime, server_default=func.now())
     # 탈퇴여부
     is_deleted = Column(Boolean, default=False)
+    # 관계 설정
+    reactions = relationship("Reaction", back_populates="user", cascade="all, delete-orphan")
 
 
 # 게시글 테이블 생성 모델
@@ -53,6 +55,8 @@ class Post(Base):
     views = Column(Integer, default=0)
     # 좋아요/싫어요
     reactions = relationship("Reaction", back_populates="post", cascade="all, delete-orphan")
+    # User 연결 (유저가 작성한 게시글 확인용)
+    user = relationship("User", backref="posts")
 
 
 # Reaction 관련 테이블 생성 모델
