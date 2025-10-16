@@ -35,7 +35,8 @@ class Post(Base):
 
     # 게시글 고유 ID
     id = Column(Integer, primary_key=True, autoincrement=True)
-    # user_id = 
+    # 사용자 ID
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     # 제목
     title = Column(String(80), nullable=False)
     # 내용
