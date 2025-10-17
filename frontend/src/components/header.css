@@ -1,0 +1,85 @@
+.header-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.header-container .logo {
+    font-size: 24px;
+    font-weight: bold;
+    float: left;
+}
+
+.search-container {
+    float: left;
+    margin-left: 50px;
+}
+
+.search-container input {
+    padding: 6px 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-container button {
+    padding: 6px 12px;
+    margin-left: 5px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #45a049;
+}
+
+.auth-buttons {
+    float: right;
+}
+
+.auth-buttons button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.auth-buttons .login-btn {
+    background-color: #2196f3;
+    color: white;
+}
+
+.auth-buttons .signup-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.auth-buttons button:hover {
+    opacity: 0.9;
+}
+
+.nav-bar {
+    clear: both;
+    margin-top: 20px;
+}
+
+.nav-bar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-bar li {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.nav-bar li:hover {
+    color: #4caf50;
+}
