@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, Enum
+=======
+from sqlalchemy import Column, Integer, String, DateTime, Text, Boolean, Enum
+>>>>>>> e38a67a9ed2823f4e0900033cd9520f9fa31fe61
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from database import Base
 
+<<<<<<< HEAD
 class User(Base):
     __tablename__ = 'users'
 
@@ -41,3 +46,29 @@ class User(Base):
 #     created_at = Column(DateTime, server_default=func.now())
 #     # 탈퇴여부
 #     is_deleted = Column(Boolean, default=False)
+=======
+# 사용자 테이블 생성 모델
+class User(Base):
+    __tablename__ = 'users'
+
+    # 사용자 고유 ID
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    # 이름
+    name = Column(String(50), nullable=False)
+    # 이메일
+    email = Column(String(150), nullable=False, unique=True)
+    # 비밀번호
+    password = Column(String(150), nullable=False)
+    # 닉네임
+    nickname = Column(String(50), nullable=False, unique=True)
+    # 생년월일
+    birth = Column(DateTime)
+    # 성별
+    gender = Column(String(10),  Enum('male', 'female', 'none', name='gender_enum'), nullable=False)
+    # 가입일자
+    created_at = Column(DateTime, server_default=func.now())
+    # 탈퇴여부
+    is_deleted = Column(Boolean, default=False)
+
+    # reactions = relationship("Reaction", back_populates="user")
+>>>>>>> e38a67a9ed2823f4e0900033cd9520f9fa31fe61
