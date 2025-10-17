@@ -2,8 +2,9 @@ import uvicorn
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine, get_db
-from models import Base, User, Post, Reaction, ReactionType
-from schemas import PostCreate, PostResponse
+from models.user import User
+from models.post import Post, Reaction, ReactionType
+from schemas.post import PostCreate, PostResponse
 
 routers = APIRouter(prefix = '/posts')
 
