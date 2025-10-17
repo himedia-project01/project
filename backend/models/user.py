@@ -26,4 +26,11 @@ class User(Base):
     # 탈퇴여부
     is_deleted = Column(Boolean, default=False)
 
-    # reactions = relationship("Reaction", back_populates="user")
+    reactions = relationship("Reaction", back_populates="user")
+    posts = relationship("Post", back_populates="user")
+
+    # 댓글과 연결할 경우 예시 : 아래의 comments가 관계변수입니다. 
+    # comment 클래스에서 back_populates="comments" 작성 시 User와 FK 연결됩니다
+    
+    # 관계변수 선언
+    # comments = relationship("Comment", back_populates="Comment 클래스에 작성된 관계변수이름") 
