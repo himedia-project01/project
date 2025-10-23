@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Text, Boolean, Enum
+from sqlalchemy import Column, Integer, String, DateTime, Text, Boolean, Enum, Date
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from database import Base
@@ -18,11 +18,11 @@ class User(Base):
     # 닉네임
     nickname = Column(String(50), nullable=False, unique=True)
     # 생년월일
-    birth = Column(DateTime)
+    birth = Column(Date)
     # 성별
     gender = Column(String(10),  Enum('male', 'female', 'none', name='gender_enum'), nullable=False)
     # 가입일자
-    created_at = Column(DateTime, server_default=func.now())
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
     # 탈퇴여부
     is_deleted = Column(Boolean, default=False)
 
