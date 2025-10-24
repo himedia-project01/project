@@ -1,0 +1,37 @@
+@import "./PostCreate.css";
+
+/* 공통 스타일(PostCreate.css) 그대로 불러옴 */
+/* 아래는 수정 페이지용으로 일부 색상/문구 강조 */
+
+.page-title {
+  color: #059669; /* 초록빛 강조 */
+}
+
+.page-subtitle {
+  color: #4b5563;
+}
+
+/* 수정 버튼 */
+.update-button {
+  background-color: #10b981; /* 밝은 초록 */
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  height: 45px;
+}
+
+.update-button:hover {
+  background-color: #059669; /* hover 시 더 진한 초록 */
+}
+
+/* 수정 시 인풋이나 텍스트박스가 살짝 강조되도록 */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15);
+}

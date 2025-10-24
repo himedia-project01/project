@@ -1,0 +1,110 @@
+.post-read-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  gap: 40px;
+}
+
+/* 메인 글 영역 */
+.post-main {
+  flex: 3;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.post-category {
+  color: #007aff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.post-title {
+  font-size: 28px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.post-meta {
+  display: flex;
+  gap: 12px;
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.post-content p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* 버튼 영역 */
+.post-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.post-actions button {
+  border: none;
+  background: #f2f2f2;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.post-actions button:hover {
+  background: #e0e0e0;
+}
+
+/* 오른쪽 사이드 */
+.post-sidebar {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-card, .sidebar-news {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.sidebar-card h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.sidebar-card button {
+  margin-top: 10px;
+  border: none;
+  background: #007aff;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sidebar-news h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.sidebar-news ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-news li {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 14px;
+}
