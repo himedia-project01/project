@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import PostForm from "../components/PostForm";
-import "./PostCreate.css";
+import "../css/PostEdit.css"; // ✅ 수정된 부분
 
 function PostEdit() {
   const { postId } = useParams();
@@ -10,7 +10,6 @@ function PostEdit() {
   const [initialData, setInitialData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // 게시글 불러오기
   useEffect(() => {
     const fetchPost = async () => {
       try {
@@ -52,7 +51,11 @@ function PostEdit() {
       <h1 className="page-title">질문 수정하기</h1>
       <p className="page-subtitle">질문 내용을 다시 다듬어 보세요.</p>
 
-      <PostForm mode="update" initialData={initialData} onSubmit={handleUpdate} />
+      <PostForm
+        mode="update"
+        initialData={initialData}
+        onSubmit={handleUpdate}
+      />
     </div>
   );
 }
