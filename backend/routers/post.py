@@ -36,7 +36,7 @@ def create_post(post: PostCreate, db: Session = Depends(get_db), user_id: int = 
     return new_post
 
 # 게시글 조회
-@router.get("/read", response_model=List[PostResponse])
+@router.get("/read/{post_id}", response_model=List[PostResponse])
 def search_posts(keyword: str = Query(..., description="검색 키워드"),
                  db: Session = Depends(get_db)):
     # title 또는 content에 keyword가 포함된 게시글 검색
