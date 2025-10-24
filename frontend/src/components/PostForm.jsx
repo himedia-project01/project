@@ -83,8 +83,10 @@ function PostForm({ mode, initialData = {}, onSubmit }) {
           </div>
         )}
 
-        <button type="submit" className="submit-button">
-          {mode === "create" ? "질문하기" : "수정하기"}
+        <button
+        type="submit"
+        className={mode === "create" ? "submit-button" : "update-button"}>
+        {mode === "create" ? "질문하기" : "수정하기"}
         </button>
       </div>
     </form>
