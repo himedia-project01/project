@@ -13,6 +13,12 @@ router = APIRouter(prefix = '/posts', tags=["게시글 관리"])
 def get_current_user_id():
     return 1  # 테스트용. 로그인된 유저라고 가정.
 
+# 게시글 목록
+@router.get("/list")
+def list_posts(db: Session = Depends(get_db)):
+    posts = db.query(Post).order_by(Post.id.desc()).all()
+    return posts
+
 # 게시글 작성
 @router.post("/create", response_model=PostResponse)
 def create_post(post: PostCreate, db: Session = Depends(get_db), user_id: int = Depends(get_current_user_id)):
