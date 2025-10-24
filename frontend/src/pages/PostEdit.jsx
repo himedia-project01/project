@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import PostForm from "../components/PostForm";
 import "./PostCreate.css";
 
-function PostUpdate() {
+function PostEdit() {
   const { postId } = useParams();
   const navigate = useNavigate();
 
@@ -57,4 +57,4 @@ function PostUpdate() {
   );
 }
 
-export default PostUpdate;
+export default PostEdit;
