@@ -42,11 +42,11 @@ function App() {
       {currentPage === "login" && <LoginForm onLoginSuccess={handleLoginSuccess} />} */}
 
       <Routes>
-        <Route path="/" element={<BoardList onLoginSuccess={handleLoginSuccess} />} />
+        {/* <Route path="/" element={<BoardList onLoginSuccess={handleLoginSuccess} />} /> */}
         <Route path="/login" element={<LoginForm onLoginSuccess={handleLoginSuccess} />} />
         <Route path="/join" element={<SignUpForm onLoginSuccess={handleLoginSuccess} />} />
         <Route path="/mypage" element={<MyPageForm onLoginSuccess={handleLoginSuccess} />} />
-        <Route path="/posts" element={<PostList />} />
+        <Route path="/" element={<PostList />} />
         <Route
           path="/posts/create"
           element={<ProtectedRoute isAuthenticated={isAuthenticated} element={<PostCreate />} />} />

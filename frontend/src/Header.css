@@ -10,6 +10,10 @@
     font-family: "Noto Sans KR", sans-serif;
 }
 
+header .link {
+    color: white !important;
+}
+
 .header-left {
     display: flex;
     align-items: center;

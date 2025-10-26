@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./PostList.css";
+import "../css/PostList.css";
 
 function PostList() {
   const [posts, setPosts] = useState([]);
@@ -12,7 +12,7 @@ function PostList() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://localhost:8000/posts/list");
+        const response = await fetch("http://127.0.0.1:8000/posts/list");
         if (!response.ok) {
           throw new Error("❗ 게시글 목록을 불러오지 못했습니다.");
         }
@@ -62,7 +62,7 @@ function PostList() {
               </p>
               <div className="post-meta">
                 <span>{post.user_id || "작성자"}</span>
-                <span>{new Date(post.created_at).toLocaleDateString()}</span>
+                <span>{new Date(post.created_date).toLocaleDateString()}</span>
               </div>
             </li>
           ))}

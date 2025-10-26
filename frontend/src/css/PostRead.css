@@ -108,3 +108,22 @@
   color: #555;
   font-size: 14px;
 }
+
+/* 수정 / 삭제 버튼 별도 스타일 */
+.post-actions .edit-btn {
+  background: #ffd966; /* 노란색 */
+  color: #333;
+}
+
+.post-actions .edit-btn:hover {
+  background: #ffca3a;
+}
+
+.post-actions .delete-btn {
+  background: #ff6b6b; /* 빨간색 */
+  color: white;
+}
+
+.post-actions .delete-btn:hover {
+  background: #ff4c4c;
+}

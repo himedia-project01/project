@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./PostCreate.css";
+import "../css/PostCreate.css";
 
 function PostForm({ mode, initialData = {}, onSubmit }) {
   const [title, setTitle] = useState(initialData.title || "");

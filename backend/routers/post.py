@@ -16,7 +16,7 @@ def get_current_user_id():
 # 게시글 목록
 @router.get("/list")
 def list_posts(db: Session = Depends(get_db)):
-    posts = db.query(Post).order_by(Post.id.desc()).all()
+    posts = db.query(Post).filter(Post.is_deleted == False).order_by(Post.id.desc()).all()
     return posts
 
 # 게시글 작성
@@ -25,7 +25,7 @@ def create_post(post: PostCreate, db: Session = Depends(get_db), user_id: int = 
     # 현재 로그인한 유저 확인
     user = db.query(User).filter(User.id == user_id).first()
     if not user:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="❌ 사용자를 찾을 수 없습니다.")
 
     # 새 게시글 생성
     new_post = Post(
@@ -41,8 +41,24 @@ def create_post(post: PostCreate, db: Session = Depends(get_db), user_id: int = 
 
     return new_post
 
+# 게시글 단일 조회
+@router.get("/read/{post_id}", response_model=PostResponse)
+def read_post(post_id: int, db: Session = Depends(get_db)):
+    # 삭제되지 않은 게시글 중 해당 ID를 찾기
+    post = db.query(Post).filter(Post.id == post_id, Post.is_deleted == False).first()
+
+    if not post:
+        raise HTTPException(status_code=404, detail="❌ 해당 게시글을 찾을 수 없습니다.")
+
+    # 조회수 증가
+    post.views += 1
+    db.commit()
+    db.refresh(post)
+
+    return post
+
 # 게시글 조회
-@router.get("/read/{post_id}", response_model=List[PostResponse])
+@router.get("/search", response_model=List[PostResponse])
 def search_posts(keyword: str = Query(..., description="검색 키워드"),
                  db: Session = Depends(get_db)):
     # title 또는 content에 keyword가 포함된 게시글 검색

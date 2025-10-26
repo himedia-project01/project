@@ -1,5 +1,5 @@
 import PostForm from "../components/PostForm";
-import "./PostCreate.css";
+import "../css/PostCreate.css";
 
 function PostCreate() {
   const handleCreate = async (postData) => {
