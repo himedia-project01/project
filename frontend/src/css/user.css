@@ -24,6 +24,10 @@ body {
     color: var(--color-black);
 }
 
+.link:hover {
+    color: blue;
+}
+
 #wrap {
     width: 100%;
     max-width: 2560px;
@@ -39,7 +43,7 @@ form.myPage_form {
     margin-top: 100px;
     padding: 50px 40px;
     border-radius: 5px;
-    border: solid 1px red;
+    border: solid 1px var(--color-black);
     font-weight: 700;
 }
 
@@ -84,6 +88,13 @@ form.myPage_form button {
     font-size: 1.2rem;
     font-weight: 700;
     cursor: pointer;
+}
+
+
+form.login-form button:hover,
+form.signup-form button:hover,
+form.myPage_form button:hover {
+    background-color: black;
 }
 
 form.login-form .button-list,

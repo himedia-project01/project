@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from sqlalchemy.orm import Session
 from fastapi.middleware.cors import CORSMiddleware
 from database import create_tables
-from routers import user, post
+from routers import user, post, comment
 
 app = FastAPI()
 
@@ -17,6 +17,7 @@ app.add_middleware(
 
 app.include_router(user.router)
 app.include_router(post.router)
+app.include_router(comment.router)
 
 @app.on_event("startup")
 def startup_event():

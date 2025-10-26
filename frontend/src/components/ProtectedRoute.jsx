@@ -8,13 +8,30 @@ import { Navigate } from "react-router-dom";
  */
 function ProtectedRoute({ isAuthenticated, element }) {
   // 로그인 안 되어 있으면 로그인 페이지로 이동
-  if (!isAuthenticated) {
-    alert("로그인 후 이용 가능합니다.");
-    return <Navigate to="/login" replace />;
+  // if (!isAuthenticated) {
+  //   alert("로그인 후 이용 가능합니다.");
+  //   return <Navigate to="/login" replace />;
+  // }
+
+  const [login, setLogin] = useState(false);
+
+  const chekLogin = async () => {
+    const response = await fetch('http://localhost:8000/users/me', {
+      method: "GET",
+      credentials: "include",
+    });
+
+    if (response.ok) {
+      setLogin(true);
+      return element;
+    } else {
+      setLogin(false);
+      return <Navigate to="/login" replace />;
+    }
   }
 
   // 로그인 되어 있으면 원래 페이지 렌더링
-  return element;
+
 }
 
 export default ProtectedRoute;

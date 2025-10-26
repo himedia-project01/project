@@ -31,6 +31,7 @@ class Post(Base):
     reactions = relationship("Reaction", back_populates="post", cascade="all, delete-orphan")
     # User 연결 (유저가 작성한 게시글 확인용)
     user = relationship("User", back_populates="posts")
+    comments = relationship("Comment", back_populates="post")
 
 
 # ReactionType 테이블

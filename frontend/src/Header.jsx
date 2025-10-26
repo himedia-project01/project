@@ -1,7 +1,7 @@
 import { FaSearch, FaUserCircle } from "react-icons/fa";
 import "./Header.css";
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 function Header({ onLogoClick, onIconClick, userEmail, onLogout, isLogin }) {
 
@@ -9,6 +9,10 @@ function Header({ onLogoClick, onIconClick, userEmail, onLogout, isLogin }) {
     const location = useLocation();
 
     const [login, setLogin] = useState(false);
+
+    const goHome = () => {
+        navigate('/')
+    }
 
     useEffect(() => {
         chekLogin();
@@ -53,8 +57,6 @@ function Header({ onLogoClick, onIconClick, userEmail, onLogout, isLogin }) {
                 navigate('/');
             }
         }
-
-
     }
 
 
@@ -65,7 +67,7 @@ function Header({ onLogoClick, onIconClick, userEmail, onLogout, isLogin }) {
             {/* 왼쪽: 로고 + 드롭다운 메뉴 */}
             <div className="header-left">
                 {/* 🌀 로고 클릭 시 홈으로 이동 */}
-                <div className="logo" onClick={onLogoClick}>
+                <div className="logo" onClick={goHome}>
                     🌀
                 </div>
 
@@ -89,6 +91,8 @@ function Header({ onLogoClick, onIconClick, userEmail, onLogout, isLogin }) {
                             <a href="#">문의하기</a>
                         </div>
                     </div>
+
+                    <Link className="link" to={'/posts'}>게시글</Link>
                 </nav>
             </div>
 
